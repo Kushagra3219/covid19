@@ -18,6 +18,13 @@
                 <li><a href="{{url_for('tests')}}">Tests</a></li>
             </ul>
         </nav>
+        <div>
+            {% if current_user %}
+            <p>{{ current_user }}</p>
+            {% else %}
+            <a href="{{url_for('register')}}">Signup</a>
+            {% endif %}
+        </div>
     </div>
     {% block body %}
     {% endblock %}

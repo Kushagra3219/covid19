@@ -23,6 +23,11 @@ Name TEXT NOT NULL,
 Description TEXT NOT NULL);
 
 
+-- SQLite
+CREATE TABLE IF NOT EXISTS Users (
+Username TEXT PRIMARY KEY,
+Password TEXT NOT NULL);
+
 
 INSERT INTO Patients (Name, Age, Gender, ContactDetails, Address, MedicalHistory) VALUES
 ('John Doe', 45, 'Male', '123-456-7890', '123 Main St, City, Country', 'Hypertension, Diabetes'),

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    {% block css %}{% endblock css %}
+    <link rel="stylesheet" href="../static/patients.css" />
+</head>
+
+<body>
+    <div class="nav-div">
+        <nav>
+            <ul>
+                <li><a href="{{url_for('index')}}">Home</a></li>
+                <li><a href="{{url_for('hospitals')}}">Hospitals</a></li>
+                <li><a href="{{url_for('tests')}}">Tests</a></li>
+            </ul>
+        </nav>
+    </div>
+    {% block body %}
+    {% endblock %}
+
+    {% block script %}
+    {% endblock %}
+</body>
+
+</html>

@@ -1,104 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COVID-19 Patients</title>
-    <link rel="stylesheet" href="../static/patients.css" />
-    <style>
-      h1 {
-        text-align: center;
-        font-size: 2.5rem;
-        color: #333;
-        background-color: #f2f2f2;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      .content {
-        margin-top: 40px;
-      }
-      /* CSS for container */
-      .table-container {
-        height: 400px; /* Set a fixed height */
-        overflow-y: auto; /* Enable vertical scrolling */
-      }
-    </style>
-  </head>
-  <body>
-    <div>
-      <h1>COVID-19 Patients</h1>
-      <nav>
-        <ul>
-          <li><a href="{{url_for('hospitals')}}">Hospitals</a></li>
-          <li><a href="{{url_for('tests')}}">Tests</a></li>
-        </ul>
-      </nav>
-    </div>
+{% extends "base.html" %}
 
-    <div class="container">
-      <table>
-        <thead>
-          <tr>
-            <th>Serial No.</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Contacts</th>
-            <th>Address</th>
-            <th>Medical History</th>
-          </tr>
-        </thead>
-        <tbody id="patients-table">
-          <!-- Existing patient rows -->
-          {% for patient in patients %}
-          <tr>
-            <td>{{ patient[0] }}</td>
-            <td>{{ patient[1] }}</td>
-            <td>{{ patient[2] }}</td>
-            <td>{{ patient[3] }}</td>
-            <td>{{ patient[4] }}</td>
-            <td>{{ patient[5] }}</td>
-            <td>{{ patient[6] }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+{% block css %}
+<link rel="stylesheet" href="../static/patients.css" />
+{% endblock %}
 
-      <form action="/add_patient" method="POST">
-        <table id="add-patient-form">
-          <tr>
-            <td><input type="number" name="ID" /></td>
-            <td><input type="text" name="Name" /></td>
-            <td><input type="number" name="Age" /></td>
-            <td><input type="text" name="Gender" /></td>
-            <td><input type="text" name="ContactDetails" /></td>
-            <td><input type="text" name="Address" /></td>
-            <td><input type="text" name="MedicalHistory" /></td>
-            <td><button type="submit">Add Patient</button></td>
-          </tr>
-        </table>
-      </form>
-    </div>
+{% block body %}
 
-    <script>
+
+<!-- <div class="table-div">
+  lorem200
+</div> -->
+
+<div class=" table-div">
+  <table>
+    <thead>
+      <tr>
+        <th>Serial No.</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Contacts</th>
+        <th>Address</th>
+        <th>Medical History</th>
+      </tr>
+    </thead>
+    <tbody id="patients-table">
+      <!-- Existing patient rows -->
+      {% for patient in patients %}
+      <tr>
+        <td>{{ patient[0] }}</td>
+        <td>{{ patient[1] }}</td>
+        <td>{{ patient[2] }}</td>
+        <td>{{ patient[3] }}</td>
+        <td>{{ patient[4] }}</td>
+        <td>{{ patient[5] }}</td>
+        <td>{{ patient[6] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div class=" table-div">
+
+
+  <form action="/add_patient" method="POST">
+    <table id="add-patient-form">
+      <tr>
+        <td><input type="number" name="ID" /></td>
+        <td><input type="text" name="Name" /></td>
+        <td><input type="number" name="Age" /></td>
+        <td><input type="text" name="Gender" /></td>
+        <td><input type="text" name="ContactDetails" /></td>
+        <td><input type="text" name="Address" /></td>
+        <td><input type="text" name="MedicalHistory" /></td>
+        <td><button type="submit">Add Patient</button></td>
+      </tr>
+    </table>
+  </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  document
+    .getElementById("add-patient-btn")
+    .addEventListener("click", function () {
+      var newRow =
+        "<tr>" +
+        '<td><input type="number" name="serial_number"></td>' +
+        '<td><input type="text" name="Name"></td>' +
+        '<td><input type="number" name="Age"></td>' +
+        '<td><input type="text" name="Gender"></td>' +
+        '<td><input type="text" name="ContactDetails"></td>' +
+        '<td><input type="text" name="Address"></td>' +
+        '<td><input type="text" name="MedicalHistory"></td>' +
+        "</tr>";
       document
-        .getElementById("add-patient-btn")
-        .addEventListener("click", function () {
-          var newRow =
-            "<tr>" +
-            '<td><input type="number" name="serial_number"></td>' +
-            '<td><input type="text" name="Name"></td>' +
-            '<td><input type="number" name="Age"></td>' +
-            '<td><input type="text" name="Gender"></td>' +
-            '<td><input type="text" name="ContactDetails"></td>' +
-            '<td><input type="text" name="Address"></td>' +
-            '<td><input type="text" name="MedicalHistory"></td>' +
-            "</tr>";
-          document
-            .getElementById("patients-table")
-            .insertAdjacentHTML("beforeend", newRow);
-        });
-    </script>
-  </body>
-</html>
+        .getElementById("patients-table")
+        .insertAdjacentHTML("beforeend", newRow);
+    });
+</script>
+{% endblock %}

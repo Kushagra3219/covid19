@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COVID-19 Tests</title>
-    <link rel="stylesheet" href="tests.css">
-</head>
-<body>
-    <h1>COVID-19 Tests</h1>
+{% extends "base.html" %}
+
+{% block css %}
+<title>COVID-19 Tests</title>
+<link rel="stylesheet" href="tests.css">
+{% endblock css %}
+
+{% block body %}
+
+<div class=" table-div">
     <table border="1">
         <tr>
             <th>Test ID</th>
@@ -28,5 +28,5 @@
         </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+</div>
+{% endblock body %}

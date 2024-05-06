@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospitals</title>
-    <link rel="stylesheet" href="/static/hospitals.css">
-</head>
-<body>
-    <h1>Hospitals</h1>
+{% extends "base.html" %}
+
+
+{% block css %}
+<title>Hospitals</title>
+<link rel="stylesheet" href="/static/hospitals.css">
+{% endblock css %}
+
+{% block body %}
+<div class=" table-div">
     <table border="1">
         <tr>
             <th>ID</th>
@@ -30,5 +30,6 @@
         </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+</div>
+
+{% endblock body %}

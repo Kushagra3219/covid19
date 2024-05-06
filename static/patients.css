@@ -1,16 +1,45 @@
+/* .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
 body {
-  height: 100%;
   margin: 0;
   background: linear-gradient(45deg, #49a09d, #5f2c82);
   font-family: sans-serif;
   font-weight: 100;
 }
 
-.container {
-  position: absolute;
-  top: 50%;
-  left: 48%;
-  transform: translate(-50%, -50%);
+.nav-div {
+  color: #333;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+  padding: 0.1vw 1vw;
+}
+
+nav>ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  color: black;
+  /* font-size: 1.3rem; */
+}
+
+nav>ul>li>a {
+  color: black;
+  font-size: 1.1rem;
+}
+
+.table-div {
+  width: 100%;
+  height: 100%;
+  /* background-color: black ; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 table {
@@ -52,13 +81,15 @@ td:hover:before {
 
 /* Styling for the button */
 #add-patient-form {
-  margin-top: 14px; /* Add some space between the table and the form */
+  margin-top: 14px;
+  /* Add some space between the table and the form */
 }
 
 #add-patient-form td input[type="number"],
 #add-patient-form td input[type="text"],
 #add-patient-form td button {
-  width: calc(100% - 10px); /* Adjust width to fit inside the table */
+  width: calc(100% - 10px);
+  /* Adjust width to fit inside the table */
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 3px;
@@ -73,4 +104,17 @@ td:hover:before {
 
 #add-patient-form td button:hover {
   background-color: #45a049;
+}
+
+
+.content {
+  margin-top: 40px;
+}
+
+/* CSS for container */
+.table-container {
+  height: 400px;
+  /* Set a fixed height */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
 }

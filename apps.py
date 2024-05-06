@@ -62,11 +62,14 @@ atexit.register(create_tables)
 
 @app.route("/")
 def index():
+    logged_in_user = None
     # if "username" not in session:
     #     return redirect(url_for("login"))
-    print("Session : ")
-    print(session["username"])
-    logged_in_user = session["username"]
+    # print("Session : ")
+    # print(session["username"])
+    if "username" in session:
+        logged_in_user = session["username"]
+    # logged_in_user = "user"
     conn = create_connection()
     cur = conn.cursor()
     cur.execute("SELECT * FROM Patients")

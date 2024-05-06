@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Tests</title>
+    <link rel="stylesheet" href="tests.css">
+</head>
+<body>
+    <h1>COVID-19 Tests</h1>
+    <table border="1">
+        <tr>
+            <th>Test ID</th>
+            <th>Patient ID</th>
+            <th>Hospital ID</th>
+            <th>Test Type</th>
+            <th>Test Date</th>
+            <th>Test Result</th>
+        </tr>
+        {% for test in tests %}
+        <tr>
+            <td>{{ test[0] }}</td>
+            <td>{{ test[1] }}</td>
+            <td>{{ test[2] }}</td>
+            <td>{{ test[3] }}</td>
+            <td>{{ test[4] }}</td>
+            <td>{{ test[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

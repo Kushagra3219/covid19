@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitals</title>
+    <link rel="stylesheet" href="/static/hospitals.css">
+</head>
+<body>
+    <h1>Hospitals</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Contact Details</th>
+            <th>Capacity</th>
+            <th>Available Beds</th>
+            <th>Medical Staff Information</th>
+        </tr>
+        {% for hospital in hospitals %}
+        <tr>
+            <td>{{ hospital[0] }}</td>
+            <td>{{ hospital[1] }}</td>
+            <td>{{ hospital[2] }}</td>
+            <td>{{ hospital[3] }}</td>
+            <td>{{ hospital[4] }}</td>
+            <td>{{ hospital[5] }}</td>
+            <td>{{ hospital[6] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

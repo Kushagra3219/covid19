@@ -1,0 +1,33 @@
+/* tests.css */
+
+/* Style the tests table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Style the tests page header */
+  .header {
+    background-color: #ff9900;
+    color: white;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  /* Style the tests page footer */
+  .footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+  }
+  

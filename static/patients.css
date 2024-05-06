@@ -35,6 +35,11 @@ nav>ul {
 nav>ul>li>a {
   color: black;
   font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.signup-link{
+  text-decoration: none;
 }
 
 .table-div {

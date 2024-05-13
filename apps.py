@@ -5,59 +5,54 @@ import atexit
 
 app = Flask(__name__)
 
-DATABASE = "/covid.db"
+DATABASE = "/covid_record.db"
 
 
 def create_connection():
-    conn = sqlite3.connect("covid.db")
+    conn = sqlite3.connect("covid_record.db")
     return conn
 
 
-def create_tables():
-    conn = create_connection()
-    cur = conn.cursor()
-    cur.execute(
-        """CREATE TABLE IF NOT EXISTS Patients (
-                    ID INTEGER PRIMARY KEY,
-                    Name TEXT NOT NULL,
-                    Age INTEGER NOT NULL,
-                    Gender TEXT NOT NULL,
-                    ContactDetails TEXT NOT NULL,
-                    Address TEXT NOT NULL,
-                    MedicalHistory TEXT NOT NULL
-                )"""
-    )
-    cur.execute(
-        """CREATE TABLE IF NOT EXISTS Hospitals (
-                    HospitalID INTEGER PRIMARY KEY,
-                    Name TEXT NOT NULL,
-                    Location TEXT NOT NULL
-                )"""
-    )
-    cur.execute(
-        """CREATE TABLE IF NOT EXISTS Tests (
-                    TestID INTEGER PRIMARY KEY,
-                    Name TEXT NOT NULL,
-                    Description TEXT NOT NULL
-                )"""
-    )
-    cur.execute(
-        """CREATE TABLE IF NOT EXISTS Users (
-                    Username TEXT PRIMARY KEY,
-                    Password TEXT NOT NULL
-                 )"""
-    )
-    conn.commit()
-    cur.close()
-    conn.close()
+# def create_tables():
+#     conn = create_connection()
+#     cur = conn.cursor()
+#     cur.execute(
+#         """CREATE TABLE IF NOT EXISTS patients (
+#                      ID INT NOT NULL PRIMARY KEY,
+#                      Name VARCHAR(255) NOT NULL,
+#                      Age INT NULL,
+#                      Gender VARCHAR(10) NOT NULL,
+#                      ContactDetails VARCHAR(255) NOT NULL,
+#                      Address VARCHAR(255) NOT NULL,
+#                      MedicalHistory TEXT NOT NULL,
+#                 )"""
+#     )
+#     cur.execute(
+#         """CREATE TABLE IF NOT EXISTS Hospitals (
+#                     HospitalID INTEGER PRIMARY KEY,
+#                     Name TEXT NOT NULL,
+#                     Location TEXT NOT NULL
+#                 )"""
+#     )
+#     cur.execute(
+#         """CREATE TABLE IF NOT EXISTS Tests (
+#                     TestID INTEGER PRIMARY KEY,
+#                     Name TEXT NOT NULL,
+#                     Description TEXT NOT NULL
+#                 )"""
+#     )
+#     cur.execute(
+#         """CREATE TABLE IF NOT EXISTS Users (
+#                     Username TEXT PRIMARY KEY,
+#                     Password TEXT NOT NULL
+#                  )"""
+#     )
+#     conn.commit()
+#     cur.close()
+#     conn.close()
 
 
-atexit.register(create_tables)
-
-
-# @app.before_first_request
-# def before_first_request_func():
-#     create_tables()
+# atexit.register(create_tables)
 
 
 @app.route("/")
